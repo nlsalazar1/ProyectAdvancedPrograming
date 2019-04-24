@@ -1,6 +1,11 @@
 
 package operation;
 
+import java.util.List;
+import model.Client;
+import model.Saucer;
+import model.User;
+import model.Menu;
 import javax.ws.rs.core.Context;
 import javax.ws.rs.core.UriInfo;
 import javax.ws.rs.Produces;
@@ -10,13 +15,17 @@ import javax.ws.rs.Path;
 import javax.ws.rs.PUT;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.core.MediaType;
+import model.Purchase;
+import services.Link;
 
 @Path("search")
 public class Search {
     
     @Context
     private UriInfo context;
-
+    
+    Link link = new Link();
+    
     public Search() {
     }
 
@@ -26,13 +35,12 @@ public class Search {
         //TODO return proper representation object
         return "To search a [ USER ] the following "
                 + "format is used:\n"
-                + ".../USER/{name}/{type}\n"
+                + ".../USER/{name}\n"
                 + ".../USER/ADMINS\n"
                 + ".../USER/EMPLOYEES\n"
                 + ".../USERS\n"
                 + "Example: \n"
-                + ".../USER/Lucas/admin\n"
-                + ".../USER/Pepe/employee\n\n\n"
+                + ".../USER/Lucas\n"
                 +
                 "To search a [ SAUCER ] the following "
                 + "format is used:\n"
@@ -46,57 +54,108 @@ public class Search {
                 + ".../CLIENT/{firsname}/{lastname}\n"
                 + ".../CLIENTS\n"
                 + "Example: \n"
-                + ".../CLIENT/Luigi/Villarreal\n\n\n";
+                + ".../CLIENT/Luigi/Villarreal\n\n\n"
+                +
+                "To search a [ MENU ] the following "
+                + "format is used:\n"
+                + ".../MENU/{nameMenu}\n"
+                + ".../MENUS\n"
+                + "Example: \n"
+                + ".../MENU/ComidaSierra\n\n\n"
+                +
+                "To search a [ PURCHASE ] the following "
+                + "format is used:\n"
+                + ".../PURCHASE/{nameMenu}\n"
+                + ".../MENUS\n"
+                + "Example: \n"
+                + ".../MENU/ComidaSierra\n\n\n";
     }
     
-    @Path("USER/{name}/{type}")   
+    @Path("PURCHASE")   
     @GET
     @Produces(MediaType.APPLICATION_JSON)
     //@Produces(MediaType.APPLICATION_JSON)
-    public String getUserNT(@PathParam("sample") String idCourse) 
+    public List<Purchase> getPurchase() 
     {
-        return "USER";
+        return link.listPurchase();
     }
+    
+    @Path("PURCHASE/{namePurchase}")   
+    @GET
+    @Produces(MediaType.APPLICATION_JSON)
+    //@Produces(MediaType.APPLICATION_JSON)
+    public List<Purchase> getPurchaseSaucer(@PathParam("namePurchase") String namePurchase) 
+    {
+        return link.listPurchaseSaucer(namePurchase);
+    }
+    
+    @Path("MENU/{nameMenu}")   
+    @GET
+    @Produces(MediaType.APPLICATION_JSON)
+    //@Produces(MediaType.APPLICATION_JSON)
+    public Menu getMenu(@PathParam("nameMenu") String nameMenu) 
+    {
+        return link.getMenu(nameMenu);
+    }
+    
+    @Path("MENUS")   
+    @GET
+    @Produces(MediaType.APPLICATION_JSON)
+    //@Produces(MediaType.APPLICATION_JSON)
+    public List<Menu> getMenus() 
+    {
+        return link.listMenu();
+    }
+    
+    @Path("USER/{name}")   
+    @GET
+    @Produces(MediaType.APPLICATION_JSON)
+    //@Produces(MediaType.APPLICATION_JSON)
+    public User getUserN(@PathParam("name") String name) 
+    {
+        return link.getUser(name);
+    }
+    
     @Path("USER/ADMINS")   
     @GET
     @Produces(MediaType.APPLICATION_JSON)
     //@Produces(MediaType.APPLICATION_JSON)
-    public String getUserAdmins(@PathParam("sample") String idCourse) 
+    public List<User> getUserAdmins() 
     {
-        return "ADMINS";
+        return link.listUserAdmin();
     }
     @Path("USER/EMPLOYEES")   
     @GET
     @Produces(MediaType.APPLICATION_JSON)
     //@Produces(MediaType.APPLICATION_JSON)
-    public String getUserEmployees(@PathParam("sample") String idCourse) 
+    public List<User> getUserEmployees() 
     {
-        return "EMPLOYEES";
+        return link.listUserEmployee();
     }
     @Path("USERS")   
     @GET
     @Produces(MediaType.APPLICATION_JSON)
     //@Produces(MediaType.APPLICATION_JSON)
-    public String getUsers(@PathParam("sample") String idCourse) 
+    public List<User> getUsers() 
     {
-        return "USERS";
+        return link.listUser();
     }
     
     @Path("SAUCER/{name}")   
     @GET
     @Produces(MediaType.APPLICATION_JSON)
     //@Produces(MediaType.APPLICATION_JSON)
-    public String getSaurceName(@PathParam("sample") String idCourse) 
+    public Saucer getSaurceName(@PathParam("name") String name) 
     {
-        return "SAUCER";
+        return link.getSaucer(name);
     }
     @Path("SAUCERS")   
     @GET
     @Produces(MediaType.APPLICATION_JSON)
     //@Produces(MediaType.APPLICATION_JSON)
-    public String setSaurces(@PathParam("sample") String idCourse) 
+    public List<Saucer> setSaurces() 
     {
-        return "SAUCERS";
+        return link.listSaucer();
     }
     
     
@@ -104,17 +163,18 @@ public class Search {
     @Path("CLIENT/{firsname}/{lastname}")  
     @GET
     @Produces(MediaType.APPLICATION_JSON)
-    public String setClient(@PathParam("sample") String idCourse) 
+    public Client setClient(@PathParam("firsname") String firsname, 
+            @PathParam("lastname") String lastname) 
     {
-        return "CLIENT";
+        return link.getCliente(firsname, lastname);
     }
     
     @Path("CLIENTS")  
     @GET
     @Produces(MediaType.APPLICATION_JSON)
-    public String setClients(@PathParam("sample") String idCourse) 
+    public List<Client> setClients() 
     {
-        return "CLIENTS";
+        return link.listClient();
     }
     /**
      * PUT method for updating or creating an instance of register

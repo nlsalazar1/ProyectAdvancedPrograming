@@ -1,0 +1,49 @@
+Listado de URIS
+
+Instrucciones de registro
+http://localhost:8080/CyberRestaurant/operation/register
+
+Registrar usuario
+http://localhost:8080/CyberRestaurant/operation/register/USER/{name}/{pass}/{type}
+
+Registrar platillo
+http://localhost:8080/CyberRestaurant/operation/register/SAUCER/{idSaurce}/{name}/{cost}
+
+Registrar cliente
+http://localhost:8080/CyberRestaurant/operation/register/CLIENT/{id}/{firsname}/{lastname}/{telephone}/{mail}
+
+Instrucciones de busqueda
+http://localhost:8080/CyberRestaurant/operation/search
+
+Buscar usuario
+http://localhost:8080/CyberRestaurant/operation/search/USER/{name}
+http://localhost:8080/CyberRestaurant/operation/search/USER/ADMINS
+http://localhost:8080/CyberRestaurant/operation/search/USER/EMPLOYEES
+http://localhost:8080/CyberRestaurant/operation/search/USERS
+
+Buscar platillo
+http://localhost:8080/CyberRestaurant/operation/search/SAUCER/{name}
+http://localhost:8080/CyberRestaurant/operation/search/SAUCERS
+
+Buscar cliente
+http://localhost:8080/CyberRestaurant/operation/search/CLIENT/{firsname}/{lastname}
+http://localhost:8080/CyberRestaurant/operation/search/CLIENTS
+
+Verificar platillo vendido
+http://localhost:8080/CyberRestaurant/operation/search/PURCHASE
+http://localhost:8080/CyberRestaurant/operation/search/PURCHASE/(namePurchase)
+
+Calificar y comprar platillo
+http://localhost:8080/CyberRestaurant/operation/buy/SAUCER/{nameSaucer}/{qualification}
+
+Eliminar Usuario
+http://localhost:8080/CyberRestaurant/operation/delete/USER/nameUser
+
+Eliminar platillo
+http://localhost:8080/CyberRestaurant/operation/delete/SAUCER/{nameSaucer}
+
+Eliminar menu
+http://localhost:8080/CyberRestaurant/operation/delete/MENU/{nameMenu}
+
+Eliminar cliente
+http://localhost:8080/CyberRestaurant/operation/delete/CLIENT/{lastname}

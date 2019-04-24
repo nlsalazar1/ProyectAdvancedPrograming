@@ -11,15 +11,20 @@ import javax.ws.rs.Consumes;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.PUT;
+import javax.ws.rs.POST;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.core.MediaType;
+import model.Menu;
+import services.Link;
 
 @Path("register")
 public class Register {
 
     @Context
     private UriInfo context;
-
+    
+    Link link = new Link();
+    
     public Register() {
     }
 
@@ -44,37 +49,62 @@ public class Register {
                 + "format is used:\n"
                 + ".../CLIENT/{id}/{firsname}/{lastname}/{telephone}/{mail}\n"
                 + "Example: \n"
-                + ".../CLIENT/20/Luigi/Villarreal/0985246604/mega777leo@hotmail.com\n\n\n";
+                + ".../CLIENT/20/Luigi/Villarreal/0985246604/mega777leo@hotmail.com\n\n\n"
+                +
+                "To register a [ MENU ] the following "
+                + "format is used:\n"
+                + ".../MENU/{idMenu}/{nameMenu}\n"
+                + "Example: \n"
+                + ".../MENU/B04/Oriental\n\n\n";
+    }
+    
+    @Path("MENU/{idMenu}/{nameMenu}")   
+    @GET
+    @Produces(MediaType.APPLICATION_JSON)
+    //@Produces(MediaType.APPLICATION_JSON)
+    public Menu setMenu(@PathParam("idMenu") String idMenu, 
+            @PathParam("nameMenu") String nameMenu) 
+    {
+        return link.setMenu(idMenu, nameMenu);
     }
     
     @Path("USER/{name}/{pass}/{type}")   
     @GET
     @Produces(MediaType.APPLICATION_JSON)
     //@Produces(MediaType.APPLICATION_JSON)
-    public User setUser(@PathParam("sample") String idCourse) 
+    public User setUser(@PathParam("name") String name, 
+            @PathParam("pass") String pass, 
+            @PathParam("type") String type) 
     {
-        User us = new User("LuviSan", "admin", "admin");
-        return us;
+        if(type.equals("admin")||type.equals("employee"))
+        {
+            return link.setUser(name, pass, type);
+        }
+        return null;
     }
     
     @Path("SAUCER/{id}/{name}/{cost}")   
     @GET
     @Produces(MediaType.APPLICATION_JSON)
     //@Produces(MediaType.APPLICATION_JSON)
-    public Saucer setSaurce(@PathParam("sample") String idCourse) 
+    public Saucer setSaurce(@PathParam("id") String idCourse, 
+            @PathParam("name") String name, 
+            @PathParam("cost") String cost) 
     {
-        Saucer sa = new Saucer("1", "stuffed rice", (float) 3.50);
-        return sa;
+        return link.setSaucer(idCourse, name, Float.parseFloat(cost));
     }
     
     @Path("CLIENT/{id}/{firsname}/{lastname}/{telephone}/{mail}")   
     @GET
     @Produces(MediaType.APPLICATION_JSON)
     //@Produces(MediaType.APPLICATION_JSON)
-    public Client setClient(@PathParam("sample") String idCourse) 
+    public Client setClient(@PathParam("id") String idCourse,
+            @PathParam("firsname") String firsname,
+            @PathParam("lastname") String lastname,
+            @PathParam("telephone") String telephone,
+            @PathParam("mail") String mail) 
     {
-        Client cl = new Client("1","Luigi","Villarreal","0985246604","mega777leo@hotmail.com");
-        return cl;
+        return link.setClient(idCourse, firsname, lastname, telephone, mail);
     }
     /**
      * PUT method for updating or creating an instance of register

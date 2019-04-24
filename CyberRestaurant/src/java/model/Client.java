@@ -4,14 +4,14 @@ package model;
 public class Client {
     
     String idClient;
-    String firsname;
+    String firstname;
     String lastname;
     String telephone;
     String mail;
 
     public Client(String idClient, String firsname, String lastname, String telephone, String mail) {
         this.idClient = idClient;
-        this.firsname = firsname;
+        this.firstname = firsname;
         this.lastname = lastname;
         this.telephone = telephone;
         this.mail = mail;
@@ -26,11 +26,11 @@ public class Client {
     }
 
     public String getFirsname() {
-        return firsname;
+        return firstname;
     }
 
     public void setFirsname(String firsname) {
-        this.firsname = firsname;
+        this.firstname = firsname;
     }
 
     public String getLastname() {
