@@ -81,11 +81,11 @@ public class Search {
     {
         return link.listPurchase();
     }
+
     @Path("PURCHASEDAY")   
     @GET
     @Produces(MediaType.APPLICATION_JSON)
-    //@Produces(MediaType.APPLICATION_JSON)
-    public String getPurchaseDay() 
+     public String getPurchaseDay() 
     {
         return "the PURCHASE of day is [ " + link.PurchaseDay() + " ]";
     }
@@ -93,8 +93,7 @@ public class Search {
     @Path("PURCHASE/{namePurchase}")   
     @GET
     @Produces(MediaType.APPLICATION_JSON)
-    //@Produces(MediaType.APPLICATION_JSON)
-    public List<Purchase> getPurchaseSaucer(@PathParam("namePurchase") String namePurchase) 
+     public List<Purchase> getPurchaseSaucer(@PathParam("namePurchase") String namePurchase) 
     {
         return link.listPurchaseSaucer(namePurchase);
     }
@@ -102,8 +101,7 @@ public class Search {
     @Path("MENU/{nameMenu}")   
     @GET
     @Produces(MediaType.APPLICATION_JSON)
-    //@Produces(MediaType.APPLICATION_JSON)
-    public Menu getMenu(@PathParam("nameMenu") String nameMenu) 
+     public Menu getMenu(@PathParam("nameMenu") String nameMenu) 
     {
         return link.getMenu(nameMenu);
     }
@@ -111,7 +109,6 @@ public class Search {
     @Path("MENUS")   
     @GET
     @Produces(MediaType.APPLICATION_JSON)
-    //@Produces(MediaType.APPLICATION_JSON)
     public List<Menu> getMenus() 
     {
         return link.listMenu();
@@ -120,7 +117,6 @@ public class Search {
     @Path("USER/{name}")   
     @GET
     @Produces(MediaType.APPLICATION_JSON)
-    //@Produces(MediaType.APPLICATION_JSON)
     public User getUserN(@PathParam("name") String name) 
     {
         return link.getUser(name);
@@ -142,10 +138,10 @@ public class Search {
     {
         return link.listUserEmployee();
     }
+
     @Path("USERS")   
     @GET
     @Produces(MediaType.APPLICATION_JSON)
-    //@Produces(MediaType.APPLICATION_JSON)
     public List<User> getUsers() 
     {
         return link.listUser();
