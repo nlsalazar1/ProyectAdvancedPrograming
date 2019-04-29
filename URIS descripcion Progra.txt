@@ -32,6 +32,8 @@ http://localhost:8080/CyberRestaurant/operation/search/CLIENTS
 Verificar platillo vendido
 http://localhost:8080/CyberRestaurant/operation/search/PURCHASE
 http://localhost:8080/CyberRestaurant/operation/search/PURCHASE/{namePurchase}
+http://localhost:8080/CyberRestaurant/operation/search/PURCHASEDAY
+
 
 Calificar y comprar platillo
 http://localhost:8080/CyberRestaurant/operation/buy/SAUCER/{nameSaucer}/{qualification}
