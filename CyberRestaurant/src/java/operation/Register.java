@@ -1,21 +1,27 @@
 
 package operation;
 
+import com.google.gson.*;
+
 import model.Client;
 import model.Saucer;
 import model.User;
+import model.Menu;
 import javax.ws.rs.core.Context;
 import javax.ws.rs.core.UriInfo;
+import javax.ws.rs.core.MediaType;
 import javax.ws.rs.Produces;
 import javax.ws.rs.Consumes;
-import javax.ws.rs.GET;
+
 import javax.ws.rs.Path;
+import javax.ws.rs.GET;
 import javax.ws.rs.PUT;
 import javax.ws.rs.POST;
 import javax.ws.rs.PathParam;
-import javax.ws.rs.core.MediaType;
-import model.Menu;
+
+
 import services.Link;
+//import com.google.gson.*;
 
 @Path("register")
 public class Register {
@@ -68,6 +74,21 @@ public class Register {
         return link.setMenu(idMenu, nameMenu);
     }
     
+//    @POST
+//    @Consumes(MediaType.APPLICATION_JSON)
+//    @Produces(MediaType.APPLICATION_JSON)
+//    public Tiger postJson(String json){
+//        Gson gson = new Gson();
+//        Tiger tiger = gson.fromJson(json, Tiger.class);
+//        
+//        TigerDAO tigerDAO = new TigerDAO();
+//        tigerDAO.registerTiger(tiger);
+//        
+//        
+//        return tiger;
+//    }
+    
+    
     @Path("USER/{name}/{pass}/{type}")   
     @GET
     @Produces(MediaType.APPLICATION_JSON)
@@ -81,6 +102,25 @@ public class Register {
             return link.setUser(name, pass, type);
         }
         return null;
+    }
+    @Path("usuario")   
+    @POST
+    @Produces(MediaType.APPLICATION_JSON)
+    @Consumes(MediaType.APPLICATION_JSON)
+    //@Produces(MediaType.APPLICATION_JSON)
+    public Gson setUserPost(Gson user) 
+    {
+        //Gson gson = new Gson();
+        //String representacionJSON = gson.toJson(empleado);
+        //User tiger = gson.fromJson(user, User.class);
+        
+//        if(user.getType().equals("admin")||user.getType().equals("employee"))
+//        {
+//            return link.setUser(user.getUsername(), user.getPassword(), user.getType());
+//        }
+//        
+//        return null;
+        return user;
     }
     
     @Path("SAUCER/{id}/{name}/{cost}")   

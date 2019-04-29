@@ -18,6 +18,7 @@ import javax.ws.rs.core.MediaType;
 import model.Purchase;
 import services.Link;
 
+
 @Path("search")
 public class Search {
     
@@ -65,10 +66,11 @@ public class Search {
                 +
                 "To search a [ PURCHASE ] the following "
                 + "format is used:\n"
-                + ".../PURCHASE/{nameMenu}\n"
-                + ".../MENUS\n"
+                + ".../PURCHASE/{namePurchase}\n"
+                + ".../PURCHASE\n"
+                + ".../PURCHASEDAY\n"
                 + "Example: \n"
-                + ".../MENU/ComidaSierra\n\n\n";
+                + ".../PURCHASE/Encebollado\n\n\n";
     }
     
     @Path("PURCHASE")   
@@ -78,6 +80,14 @@ public class Search {
     public List<Purchase> getPurchase() 
     {
         return link.listPurchase();
+    }
+    @Path("PURCHASEDAY")   
+    @GET
+    @Produces(MediaType.APPLICATION_JSON)
+    //@Produces(MediaType.APPLICATION_JSON)
+    public String getPurchaseDay() 
+    {
+        return "the PURCHASE of day is [ " + link.PurchaseDay() + " ]";
     }
     
     @Path("PURCHASE/{namePurchase}")   
@@ -148,6 +158,14 @@ public class Search {
     public Saucer getSaurceName(@PathParam("name") String name) 
     {
         return link.getSaucer(name);
+    }
+    @Path("SAUCERCOST/{name}")   
+    @GET
+    @Produces(MediaType.TEXT_PLAIN)
+    //@Produces(MediaType.APPLICATION_JSON)
+    public String getSaurceCost(@PathParam("name") String name) 
+    {
+        return "The SAUCER [ " + name + " ] cost is [ " + link.getSaucerCost(name) + " ]";
     }
     @Path("SAUCERS")   
     @GET

@@ -48,4 +48,7 @@ public class Buy {
     {
         return link.getPurchase(nameSaucer, Integer.parseInt(qualification));
     }
+    
+    
+    
 }
