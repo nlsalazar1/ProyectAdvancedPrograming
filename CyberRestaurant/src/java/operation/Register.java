@@ -74,25 +74,9 @@ public class Register {
         return link.setMenu(idMenu, nameMenu);
     }
     
-//    @POST
-//    @Consumes(MediaType.APPLICATION_JSON)
-//    @Produces(MediaType.APPLICATION_JSON)
-//    public Tiger postJson(String json){
-//        Gson gson = new Gson();
-//        Tiger tiger = gson.fromJson(json, Tiger.class);
-//        
-//        TigerDAO tigerDAO = new TigerDAO();
-//        tigerDAO.registerTiger(tiger);
-//        
-//        
-//        return tiger;
-//    }
-    
-    
     @Path("USER/{name}/{pass}/{type}")   
     @GET
     @Produces(MediaType.APPLICATION_JSON)
-    //@Produces(MediaType.APPLICATION_JSON)
     public User setUser(@PathParam("name") String name, 
             @PathParam("pass") String pass, 
             @PathParam("type") String type) 
@@ -103,31 +87,26 @@ public class Register {
         }
         return null;
     }
+
     @Path("usuario")   
     @POST
     @Produces(MediaType.APPLICATION_JSON)
     @Consumes(MediaType.APPLICATION_JSON)
-    //@Produces(MediaType.APPLICATION_JSON)
     public Gson setUserPost(Gson user) 
     {
-        //Gson gson = new Gson();
-        //String representacionJSON = gson.toJson(empleado);
-        //User tiger = gson.fromJson(user, User.class);
         
-//        if(user.getType().equals("admin")||user.getType().equals("employee"))
-//        {
-//            return link.setUser(user.getUsername(), user.getPassword(), user.getType());
-//        }
-//        
-//        return null;
+        if(user.getType().equals("admin")||user.getType().equals("employee"))
+        {
+            return link.setUser(user.getUsername(), user.getPassword(), user.getType());
+        }
+        
         return user;
     }
     
     @Path("SAUCER/{id}/{name}/{cost}")   
     @GET
     @Produces(MediaType.APPLICATION_JSON)
-    //@Produces(MediaType.APPLICATION_JSON)
-    public Saucer setSaurce(@PathParam("id") String idCourse, 
+     public Saucer setSaurce(@PathParam("id") String idCourse, 
             @PathParam("name") String name, 
             @PathParam("cost") String cost) 
     {
@@ -137,8 +116,7 @@ public class Register {
     @Path("CLIENT/{id}/{firsname}/{lastname}/{telephone}/{mail}")   
     @GET
     @Produces(MediaType.APPLICATION_JSON)
-    //@Produces(MediaType.APPLICATION_JSON)
-    public Client setClient(@PathParam("id") String idCourse,
+     public Client setClient(@PathParam("id") String idCourse,
             @PathParam("firsname") String firsname,
             @PathParam("lastname") String lastname,
             @PathParam("telephone") String telephone,
