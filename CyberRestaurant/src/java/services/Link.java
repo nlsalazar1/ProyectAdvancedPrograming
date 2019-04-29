@@ -30,6 +30,7 @@ public class Link {
     private String sqlIncerMenu = "INSERT INTO menu(idMenu,nameMenu) ";
     private String sqlIncerPurchase = "INSERT INTO purchase(idPurchase,namePurchase,costPurchase,qualification,tiket) ";
     
+
     private Conexion conexion = new Conexion();
     Random rnd = new Random();
     
@@ -66,7 +67,8 @@ public class Link {
         }
     }
     
-    public List<Purchase> listPurchase(){
+    
+public List<Purchase> listPurchase(){
         Conexion conect1 = new Conexion();
         Connection con1 = conect1.getConnection();
         String sql = "SELECT * FROM purchase";
@@ -131,7 +133,8 @@ public class Link {
             JOptionPane.showMessageDialog(null, "Error al registrar...");
         }
     }
-    
+
+    //envió de datos menu a borrar
     public void deleteMenu(String nameMenu){
         try {
             Conexion conect1 = new Conexion();
@@ -148,7 +151,7 @@ public class Link {
             JOptionPane.showMessageDialog(null, "Error al registrar...");
         }
     }
-    
+
     public void deleteUser(String nameUser){
         try {
             Conexion conect1 = new Conexion();
@@ -261,7 +264,7 @@ public class Link {
 //        }
 //    }
     
-    public List<Menu> listMenu(){
+public List<Menu> listMenu(){
         Conexion conect1 = new Conexion();
         Connection con1 = conect1.getConnection();
         String sql = "SELECT * FROM menu";
@@ -284,7 +287,8 @@ public class Link {
             return null;
         }
     }
-    
+
+
     public List<Client> listClient(){
         Conexion conect1 = new Conexion();
         Connection con1 = conect1.getConnection();
@@ -337,7 +341,8 @@ public class Link {
             return null;
         }
     }
-    
+
+    // función para la consulta de lista de usuarios
     public List<User> listUser(){
         Conexion conect1 = new Conexion();
         Connection con1 = conect1.getConnection();
@@ -436,6 +441,7 @@ public class Link {
         }
     }
     
+    // función para generar consulta de un usuario
     public User getUser(String nameUser)
     {
             Conexion conect1 = new Conexion();
@@ -458,7 +464,7 @@ public class Link {
                 return null;
         }
     }
-    
+
     public Saucer getSaucer(String nameSaucer)
     {
             Conexion conect1 = new Conexion();
