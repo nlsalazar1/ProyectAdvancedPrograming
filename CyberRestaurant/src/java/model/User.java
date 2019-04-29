@@ -1,7 +1,8 @@
 
 package model;
-
+import com.google.gson.annotations.SerializedName;
 public class User {
+    @SerializedName("username")
     String username;
     String password;
     String type;

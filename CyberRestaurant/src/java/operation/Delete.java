@@ -52,41 +52,33 @@ public class Delete {
                 + "Example: \n"
                 + ".../MENU/Taday\n\n\n";
     }
-    
-    @Path("CLIENT/{lastname}")   
+    //@DELETE
     @GET
-    @Produces(MediaType.TEXT_PLAIN)
-    //@Produces(MediaType.APPLICATION_JSON)
+    @Path("CLIENT/{lastname}")   
     public String deleteClient(@PathParam("lastname") String lastname)
     {
         link.deleteClient(lastname);
         return "CLIENT [ " + lastname + " ] ";
     }
-    
-    @Path("USER/{nameUser}")   
+    //@DELETE
     @GET
-    @Produces(MediaType.TEXT_PLAIN)
-    //@Produces(MediaType.APPLICATION_JSON)
+    @Path("USER/{nameUser}")   
     public String deleteUser(@PathParam("nameUser") String nameUser)
     {
         link.deleteUser(nameUser);
-        return "USER [ " + nameUser + " ] ";
+        return "USER [ " + nameUser + " ] REMOVED...";
     }
-    
-    @Path("SAUCER/{nameSaucer}")   
+    //@DELETE
     @GET
-    @Produces(MediaType.TEXT_PLAIN)
-    //@Produces(MediaType.APPLICATION_JSON)
+    @Path("SAUCER/{nameSaucer}")   
     public String deleteSaucer(@PathParam("nameSaucer") String nameSaucer)
     {
         link.deleteSaucer(nameSaucer);
         return "SAUCER [ " + nameSaucer + " ] ";
     }
-    
-    @Path("MENU/{nameMenu}")   
+    //@DELETE
     @GET
-    @Produces(MediaType.TEXT_PLAIN)
-    //@Produces(MediaType.APPLICATION_JSON)
+    @Path("MENU/{nameMenu}")   
     public String deleteMenu(@PathParam("nameMenu") String nameMenu)
     {
         link.deleteMenu(nameMenu);

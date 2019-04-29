@@ -94,12 +94,33 @@ public class Link {
         }
     }
     
+        public String PurchaseDay(){
+        Conexion conect1 = new Conexion();
+        Connection con1 = conect1.getConnection();
+        String sql = "SELECT * FROM purchase";
+        try
+        {
+            Statement st = con1.createStatement();
+            ResultSet rs = st.executeQuery(sql);
+            float costPurchase = 0;
+            while (rs.next()){
+                costPurchase += rs.getFloat("costPurchase");
+
+            }
+            st.close();
+            return "" + costPurchase;
+        }catch (SQLException e){
+            System.err.println("Got an exception! ");
+            return null;
+        }
+    }
+    
     public void deleteClient(String lastname){
         try {
             Conexion conect1 = new Conexion();
             Connection con = conect1.getConnection();
             
-            String sql = "Delete From saucer where lastname = '" + lastname + "'";
+            String sql = "Delete From cliente where lastname = '" + lastname + "'";
             Statement st = con.createStatement();
             
             st = con.createStatement();
@@ -116,7 +137,7 @@ public class Link {
             Conexion conect1 = new Conexion();
             Connection con = conect1.getConnection();
             
-            String sql = "Delete From saucer where nameMenu = '" + nameMenu + "'";
+            String sql = "Delete From menu where nameMenu = '" + nameMenu + "'";
             Statement st = con.createStatement();
             
             st = con.createStatement();
@@ -133,7 +154,7 @@ public class Link {
             Conexion conect1 = new Conexion();
             Connection con = conect1.getConnection();
             
-            String sql = "Delete From saucer where nameUser = '" + nameUser + "'";
+            String sql = "Delete From user where nameUser = '" + nameUser + "'";
             Statement st = con.createStatement();
             
             st = con.createStatement();
@@ -204,6 +225,41 @@ public class Link {
             return null;
         }
     }
+    
+//    public Purchase getPopular()
+//    {
+//        Conexion conect1 = new Conexion();
+//        Connection con1 = conect1.getConnection();
+//
+//        String sql = "SELECT namesaucer from  saucer";
+//        try
+//        {
+//            Statement st = con1.createStatement();
+//            ResultSet rs = st.executeQuery(sql);
+//
+//            Purchase pu = null;
+//            while(rs.next()){
+//                float costSaucer = rs.getFloat("costSaucer");
+//
+//                String sqlA = sqlIncerPurchase 
+//                        + "VALUES ('" + id + "', '"
+//                        + nameSaucer + "', '"
+//                        + costSaucer + "', '"
+//                        + qualification + "', '"
+//                        + tiket + "')";
+//                Statement stA = con1.createStatement();
+//                stA.executeUpdate(sqlA);
+//
+//                pu = new Purchase(id, nameSaucer, costSaucer, qualification, tiket);
+//            }
+//            //st.close();
+//            con1.close();
+//            return pu;
+//        }    catch (SQLException e) {
+//            JOptionPane.showMessageDialog(null, "Error al registrar...");
+//            return null;
+//        }
+//    }
     
     public List<Menu> listMenu(){
         Conexion conect1 = new Conexion();
@@ -428,6 +484,31 @@ public class Link {
         }
     }
     
+    public String getSaucerCost(String nameSaucer)
+    {
+            Conexion conect1 = new Conexion();
+            Connection con1 = conect1.getConnection();
+            
+            String sql = sqlGetSaucer + "nameSaucer= '" + nameSaucer+ "'";
+            try
+            {
+                Statement st = con1.createStatement();
+                ResultSet rs = st.executeQuery(sql);
+                Saucer sa = null;
+                while(rs.next()){
+                    sa = new Saucer(rs.getString("idSaucer"), nameSaucer, 
+                            rs.getFloat("costSaucer"), 
+                            rs.getInt("qualification"));
+                    return rs.getString("costSaucer");
+                }
+                con1.close();
+                return "SAUCER FAILURE...";
+            }    catch (SQLException e) {
+                JOptionPane.showMessageDialog(null, "Error al registrar...");
+                return null;
+        }
+    }
+    
     public Client getCliente(String firstname, String lastname)
     {
             Conexion conect1 = new Conexion();
@@ -469,6 +550,27 @@ public class Link {
             con.close();
             Menu me = new Menu(idMenu, nameMenu);
             return me;
+        }    catch (SQLException e) {
+            JOptionPane.showMessageDialog(null, "Error al registrar...");
+            return null;
+        }
+    }
+    
+    public User setUserOBJ(User user)
+    {
+        Connection con = conexion.getConnection();
+        Statement st;
+        //System.out.println("+++");
+        String sql = sqlIncerUser
+                + "VALUES ('" + user.getUsername() + "', '"
+                + user.getPassword() + "', '"
+                + user.getType() + "')";
+        try {
+            st = con.createStatement();
+            st.executeUpdate(sql);
+            st.close();
+            con.close();
+            return user;
         }    catch (SQLException e) {
             JOptionPane.showMessageDialog(null, "Error al registrar...");
             return null;

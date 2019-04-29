@@ -19,18 +19,18 @@ public class Start {
      */
     public static void main(String[] args) {
         // TODO code application logic here
-//        Link l = new Link();
-//        l.listUser();
+        Link l = new Link();
+        l.deleteClient("ZZZ");
 
 
-    Random rnd = new Random();
-    
-    String tiket = "" + (char)(rnd.nextInt(91) + 65)
-            + (char)(rnd.nextInt(65) + 65)
-            + (char)(rnd.nextInt(65) + 65)
-            + rnd.nextInt(10)
-            + rnd.nextInt(10);
-        System.out.println(tiket);
+//    Random rnd = new Random();
+//    
+//    String tiket = "" + (char)(rnd.nextInt(91) + 65)
+//            + (char)(rnd.nextInt(65) + 65)
+//            + (char)(rnd.nextInt(65) + 65)
+//            + rnd.nextInt(10)
+//            + rnd.nextInt(10);
+//        System.out.println(tiket);
     }
     
 }
