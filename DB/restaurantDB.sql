@@ -65,19 +65,24 @@ CREATE TABLE IF NOT EXISTS `purchase` (
   PRIMARY KEY (`idPurchase`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
--- Volcando datos para la tabla restaurant.purchase: ~10 rows (aproximadamente)
+-- Volcando datos para la tabla restaurant.purchase: ~14 rows (aproximadamente)
 /*!40000 ALTER TABLE `purchase` DISABLE KEYS */;
 INSERT INTO `purchase` (`idPurchase`, `namePurchase`, `costPurchase`, `qualification`, `tiket`) VALUES
 	('P0000', 'Encebollado', 2.5, 9, 'Adr84'),
-	('P0442', 'Encebollado', 2.5, 7, 'hOH13'),
+	('P0132', 'Encebollado', 2.5, 9, 'woi29'),
+	('P0442', 'MaitoDePescado', 4.5, 7, 'hOH13'),
 	('P3366', 'Encebollado', 2.5, 7, 'J_i60'),
+	('P3373', 'MenestraConCarne', 3.5, 8, 'dya88'),
 	('P3525', 'Encebollado', 2.5, 10, 'jN[59'),
-	('P4827', 'Encebollado', 2.5, 10, '`tL95'),
+	('P4827', 'CevicheCamaron', 5, 10, '`tL95'),
+	('P5141', 'Encebollado', 2.5, 8, 'Lv[50'),
 	('P6232', 'Encebollado', 2.5, 7, '[Id91'),
-	('P6566', 'Encebollado', 2.5, 7, '?Ds39'),
+	('P6566', 'MenestraConCarne', 3.5, 7, '?Ds39'),
 	('P6643', 'Encebollado', 2.5, 7, 'J[[02'),
-	('P9013', 'Encebollado', 2.5, 7, 'F}k19'),
-	('P9546', 'Encebollado', 2.5, 7, 'VlS43');
+	('P8962', 'MenestraConCarne', 3.5, 8, 'mLc59'),
+	('P9013', 'CevicheCamaron', 5, 7, 'F}k19'),
+	('P9546', 'Encebollado', 2.5, 7, 'VlS43'),
+	('P9965', 'MenestraConCarne', 3.5, 8, 'Hfy48');
 /*!40000 ALTER TABLE `purchase` ENABLE KEYS */;
 
 -- Volcando estructura para tabla restaurant.qualification
@@ -134,15 +139,17 @@ CREATE TABLE IF NOT EXISTS `user` (
   PRIMARY KEY (`NAMEUSER`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
--- Volcando datos para la tabla restaurant.user: ~7 rows (aproximadamente)
+-- Volcando datos para la tabla restaurant.user: ~10 rows (aproximadamente)
 /*!40000 ALTER TABLE `user` DISABLE KEYS */;
 INSERT INTO `user` (`NAMEUSER`, `PASSUSER`, `TYPEUSER`) VALUES
+	('Alex', 'al123', 'admin'),
 	('AXEL', 'alex', 'employee'),
 	('LEO', 'jeje', 'admin'),
 	('Lucas', 'Ld123', 'admin'),
 	('LUVISAN', 'ldvc', 'admin'),
 	('MEGA7', '7568', 'admin'),
 	('MRPRO', 'wait', 'employee'),
+	('Pepe', '1234', 'admin'),
 	('SKYLAN', 'xdxd', 'employee');
 /*!40000 ALTER TABLE `user` ENABLE KEYS */;
 
