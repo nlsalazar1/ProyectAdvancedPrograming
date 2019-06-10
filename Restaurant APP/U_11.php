@@ -1,6 +1,5 @@
 <?php
-    $name = $_GET['nameClient'];
-    $data = json_decode(file_get_contents("http://localhost:8080/CyberRestaurant/operation/delete/CLIENT/$name"), true);
+    $data = json_decode(file_get_contents("http://localhost:8080/CyberRestaurant/operation/search/SAUCERS"),true);
 ?>
 
 <!DOCTYPE html>
@@ -11,7 +10,7 @@
         <meta name="description" content="">
         <meta name="author" content="">
 
-        <title>Client</title>
+        <title>Saucer PHP</title>
 
         <!-- Bootstrap core CSS -->
         <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -30,14 +29,14 @@
         <span class="site-heading-upper text-primary mb-3">CYBER RESTAURANT</span>
         <MARQUEE class="site-heading-lower" style="background:rgba(37, 21, 2, 0.9)">    
             <FONT SIZE=8>
-            <b>CLIENT</b>
+            <b>LIST SAUCER</b>
             </font>
             </MARQUEE>
         </h1>
         <!-- Navigation -->
         <nav class="navbar navbar-expand-lg navbar-dark py-lg-4" id="mainNav">
             <div class="container">
-                <a class="navbar-brand text-uppercase text-expanded font-weight-bold d-lg-none" href="#">CLIENT</a>
+                <a class="navbar-brand text-uppercase text-expanded font-weight-bold d-lg-none" href="#">SAUCER</a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" 
                 aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -50,7 +49,7 @@
                     </a>
                     </li>
                     <li class="nav-item px-lg-4">
-                    <a class="nav-link text-uppercase text-expanded" href="client.html">CLIENT</a>
+                    <a class="nav-link text-uppercase text-expanded" href="saucer.html">SAUCER</a>
                     </li>
                 </ul>
                 </div>
@@ -66,7 +65,7 @@
               <h2 class="section-heading mb-5">
                 <span class="section-heading-upper"> - -- --- H --- -- -</span>
                 <span class="section-heading-lower">
-                  <b>CLIENT</b>
+                  <b>SAUCER</b>
                 </span>
               </h2>
                 <ul class="list-unstyled list-hours mb-5 text-left mx-auto">
@@ -76,16 +75,20 @@
                         <?php echo(""); ?>
                     </span>
                     </li>
-
-                    <li class="list-unstyled-item list-hours-item d-flex">
-                    <?php echo("<p> <b>CLIENT DELETE:</b></p>");?>
-                    <span class="ml-auto">
-                        <?php echo("<p>{ $name }</p>"); ?>
-                    </span>
-                    </li>
-
-                </li>
-              </ul>
+                    
+                    <?php
+                    foreach ($data as $d){
+                        echo("<p> <b>ID:&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                        &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                        &nbsp&nbsp</b> {$d['idSaurce']} </p>"); 
+                        echo("<p> <b>NAME:&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                        &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</b> {$d['name']} </p>");               
+                        echo("<p> <b>COST:&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                        &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</b> {$d['cost']} </p>"); 
+                        echo("<p> <b>QUALIFICATION:&nbsp</b> {$d['qualification']} </p><br><br>");   
+                    }
+                    ?>
+                </ul>
             </div>
           </div>
         </div>
@@ -99,9 +102,9 @@
             class="btn btn-primary" name="cl" id="cl">
             HOME
             </button>
-            <button align="center" onclick="location.href='./client.html'" style="background:rgba(27, 15, 1, 0.9)" 
+            <button align="center" onclick="location.href='./saucer.html'" style="background:rgba(27, 15, 1, 0.9)" 
             class="btn btn-primary" name="cl" id="cl">
-            MENU CLIENT
+            MENU SAUCER
             </button>
 
             <p class="m-0 small">Copyright &copy; Your Website 2018</p>
@@ -113,6 +116,9 @@
     <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
     </body>
 
-
+      <!-- Script to highlight the active date in the hours list -->
+    <script>
+        $('.list-hours li').eq(new Date().getDay()).addClass('today');
+    </script>
 
 </html>

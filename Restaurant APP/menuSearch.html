@@ -8,7 +8,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>SAUCER</title>
+    <title>MENU</title>
 
     <!-- Bootstrap core CSS -->
     <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -21,6 +21,7 @@
     <!-- Custom styles for this template -->
     <link href="css/business-casual.min.css" rel="stylesheet">
 
+    <script type="text/javascript" src="U_23.js"></script>
   </head>
 
   <body>
@@ -29,14 +30,14 @@
       <span class="site-heading-upper text-primary mb-3">CYBER RESTAURANT</span>
       <MARQUEE class="site-heading-lower" style="background:rgba(37, 21, 2, 0.9)">    
         <FONT SIZE=8>
-          <b>SAUCER</b>
+          <b>MENU</b>
           </font>
         </MARQUEE>
       </h1>
     <!-- Navigation -->
     <nav class="navbar navbar-expand-lg navbar-dark py-lg-4" id="mainNav">
       <div class="container">
-        <a class="navbar-brand text-uppercase text-expanded font-weight-bold d-lg-none" href="#">SAUCER</a>
+        <a class="navbar-brand text-uppercase text-expanded font-weight-bold d-lg-none" href="#">MENU</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" 
         aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
@@ -48,34 +49,18 @@
                 <span class="sr-only">(current)</span>
               </a>
             </li>
-            <li class="nav-item px-lg-4">
-                <a class="nav-link text-uppercase text-expanded" href="saucerRegister.html">Register</a>
             </li>
             <li class="nav-item px-lg-4">
-                <a class="nav-link text-uppercase text-expanded" href="saucerSearch.html">Search</a>
-            </li>
-            <li class="nav-item px-lg-4">
-                <a class="nav-link text-uppercase text-expanded" href="U_11.php">List</a>
-                <!-- <a class="nav-link text-uppercase text-expanded" href="U_10.php">List</a> -->
-            </li>
-            <li class="nav-item px-lg-4">
-                <a class="nav-link text-uppercase text-expanded" href="buySaucer.html">Buy</a>
-            </li>
-            <li class="nav-item px-lg-4">
-                <a class="nav-link text-uppercase text-expanded" href="deleteSaucer.html">Delete</a>
-            </li>
-            <li class="nav-item px-lg-4">
-                <a class="nav-link text-uppercase text-expanded" href="U_25.php">PURCHASE</a>
+                <a class="nav-link text-uppercase text-expanded" href="menu.html">Menu</a>
             </li>
           </ul>
         </div>
       </div>
     </nav>
 
-    <div id='form'  method="GET" style="background:rgba(240, 208, 167, 0.9)">
+    <form id='form'  method="GET" style="background:rgba(240, 208, 167, 0.9)">
 
       <div class="container">
-          <img class="img-fluid rounded about-heading-img mb-3 mb-lg-0" src="img/saucer.jpg" alt="">
         <div class="row">
           <div class="col-xl-9 mx-auto">
             <div class="cta-inner text-center rounded">
@@ -84,40 +69,19 @@
                   <b>SELECT AN OPTION</b>
                 </span>
               </h2>
-                <button method="GET" onclick="location.href='./saucerRegister.html'" style="background:rgba(27, 15, 1, 0.9)" 
-                class="btn btn-primary" name="cl" id="cl">
-                REGISTER SAUCER
-                </button>
+              <b style="color:black">Name: <span class="glyphicon glyphicon-pencil"></span></b>
+              <input type="text" class="form-control" id="name" name="name" placeholder="Name"><br><br>
 
-                <button method="GET" onclick="location.href='./saucerSearch.html'" style="background:rgba(27, 15, 1, 0.9)" 
-                class="btn btn-primary" name="cl" id="cl">
-                SEARCH SAUCER
-                </button>
-                
-                <button method="GET" onclick="location.href='./U_11.php'" style="background:rgba(27, 15, 1, 0.9)" 
-                class="btn btn-primary" name="cl" id="cl">
-                LIST SAUCER
-                </button>
+              <button onclick="operation()" style="background:rgba(27, 15, 1, 0.9)" 
+              class="btn btn-primary" name="cl" id="cl">SEARCH MENU</button>
 
-                <button method="GET" onclick="location.href='./buySaucer.html'" style="background:rgba(27, 15, 1, 0.9)" 
-                class="btn btn-primary" name="cl" id="cl">
-                BUY SAUCER
-                </button>
-
-                <button method="GET" onclick="location.href='./deleteSaucer.html'" style="background:rgba(27, 15, 1, 0.9)" 
-                class="btn btn-primary" name="cl" id="cl">
-                DELETE SAUCER
-                </button>
-                
-                <button method="GET" onclick="location.href='./U_25.php'" style="background:rgba(27, 15, 1, 0.9)" 
-                class="btn btn-primary" name="cl" id="cl">
-                PURCHASE OF DAY
-                </button><br><br>
+              <button style="background:rgba(27, 15, 1, 0.9)" class="btn btn-primary" 
+              type="reset" name="cl" id="cl"> CLEAR </button><br><br>
             </div>
           </div>
         </div>
       </div>
-    </div>
+    </form>
 
     <footer class="footer text-faded text-center py-5">
       <div class="container">

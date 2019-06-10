@@ -1,6 +1,5 @@
 <?php
-    $name = $_GET['nameClient'];
-    $data = json_decode(file_get_contents("http://localhost:8080/CyberRestaurant/operation/delete/CLIENT/$name"), true);
+    $data = json_decode(file_get_contents("http://localhost:8080/CyberRestaurant/operation/search/CLIENTS"),true);
 ?>
 
 <!DOCTYPE html>
@@ -11,7 +10,7 @@
         <meta name="description" content="">
         <meta name="author" content="">
 
-        <title>Client</title>
+        <title>Client PHP</title>
 
         <!-- Bootstrap core CSS -->
         <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -30,14 +29,14 @@
         <span class="site-heading-upper text-primary mb-3">CYBER RESTAURANT</span>
         <MARQUEE class="site-heading-lower" style="background:rgba(37, 21, 2, 0.9)">    
             <FONT SIZE=8>
-            <b>CLIENT</b>
+            <b>LIST SAUCER</b>
             </font>
             </MARQUEE>
         </h1>
         <!-- Navigation -->
         <nav class="navbar navbar-expand-lg navbar-dark py-lg-4" id="mainNav">
             <div class="container">
-                <a class="navbar-brand text-uppercase text-expanded font-weight-bold d-lg-none" href="#">CLIENT</a>
+                <a class="navbar-brand text-uppercase text-expanded font-weight-bold d-lg-none" href="#">SAUCER</a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" 
                 aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -66,7 +65,7 @@
               <h2 class="section-heading mb-5">
                 <span class="section-heading-upper"> - -- --- H --- -- -</span>
                 <span class="section-heading-lower">
-                  <b>CLIENT</b>
+                  <b>CLIENTS</b>
                 </span>
               </h2>
                 <ul class="list-unstyled list-hours mb-5 text-left mx-auto">
@@ -76,16 +75,17 @@
                         <?php echo(""); ?>
                     </span>
                     </li>
-
-                    <li class="list-unstyled-item list-hours-item d-flex">
-                    <?php echo("<p> <b>CLIENT DELETE:</b></p>");?>
-                    <span class="ml-auto">
-                        <?php echo("<p>{ $name }</p>"); ?>
-                    </span>
-                    </li>
-
-                </li>
-              </ul>
+                    
+                    <?php
+                    foreach ($data as $d){
+                        echo("<p> <b>ID:</b> {$d['idClient']} </p>"); 
+                        echo("<p> <b>NAME:</b> {$d['firsname']} </p>");               
+                        echo("<p> <b>LASTNAME:</b> {$d['lastname']} </p>"); 
+                        echo("<p> <b>TELEPHONE:</b> {$d['telephone']} </p>");
+                        echo("<p> <b>MAIL:</b> {$d['mail']} </p><br><br>");  
+                    }
+                    ?>
+                </ul>
             </div>
           </div>
         </div>
@@ -113,6 +113,9 @@
     <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
     </body>
 
-
+      <!-- Script to highlight the active date in the hours list -->
+    <script>
+        $('.list-hours li').eq(new Date().getDay()).addClass('today');
+    </script>
 
 </html>

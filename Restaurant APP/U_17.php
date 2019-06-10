@@ -1,6 +1,6 @@
 <?php
     $name = $_GET['nameSaucer'];
-    $data = json_decode(file_get_contents("http://localhost:8080/ProyRestaurant/operation/delete/SAUCER/$name"), true);
+    $data = json_decode(file_get_contents("http://localhost:8080/CyberRestaurant/operation/delete/SAUCER/$name"), true);
 ?>
 
 <!DOCTYPE html>
@@ -11,7 +11,7 @@
         <meta name="description" content="">
         <meta name="author" content="">
 
-        <title>Business Casual - Start Bootstrap Theme</title>
+        <title>Saucer</title>
 
         <!-- Bootstrap core CSS -->
         <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -50,7 +50,7 @@
                     </a>
                     </li>
                     <li class="nav-item px-lg-4">
-                    <a class="nav-link text-uppercase text-expanded" href="about.html">SAUCER</a>
+                    <a class="nav-link text-uppercase text-expanded" href="saucer.html">SAUCER</a>
                     </li>
                 </ul>
                 </div>
@@ -78,9 +78,9 @@
                     </li>
 
                     <li class="list-unstyled-item list-hours-item d-flex">
-                    <?php echo("<p> <b>Saucer:</b></p>");?>
+                    <?php echo("<p> <b>SAUCER DELETE:</b></p>");?>
                     <span class="ml-auto">
-                        <?php echo("<p>{$data['nameSaucer']}</p>"); ?>
+                        <?php echo("<p>{ $name }</p>"); ?>
                     </span>
                     </li>
 

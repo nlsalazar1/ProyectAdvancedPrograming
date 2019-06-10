@@ -1,6 +1,6 @@
 <?php
     $name = $_GET['nameUser'];
-    $data = json_decode(file_get_contents("http://localhost:8080/ProyRestaurant/operation/delete/USER/$name"), true);
+    $data = json_decode(file_get_contents("http://localhost:8080/CyberRestaurant/operation/delete/USER/$name"), true);
 ?>
 
 <!DOCTYPE html>
@@ -11,7 +11,7 @@
         <meta name="description" content="">
         <meta name="author" content="">
 
-        <title>Business Casual - Start Bootstrap Theme</title>
+        <title>USER</title>
 
         <!-- Bootstrap core CSS -->
         <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -30,7 +30,7 @@
         <span class="site-heading-upper text-primary mb-3">CYBER RESTAURANT</span>
         <MARQUEE class="site-heading-lower" style="background:rgba(37, 21, 2, 0.9)">    
             <FONT SIZE=8>
-            <b>SAUCER</b>
+            <b>USER</b>
             </font>
             </MARQUEE>
         </h1>
@@ -66,7 +66,7 @@
               <h2 class="section-heading mb-5">
                 <span class="section-heading-upper"> - -- --- H --- -- -</span>
                 <span class="section-heading-lower">
-                  <b>SAUCER</b>
+                  <b>USER</b>
                 </span>
               </h2>
                 <ul class="list-unstyled list-hours mb-5 text-left mx-auto">
@@ -78,9 +78,9 @@
                     </li>
 
                     <li class="list-unstyled-item list-hours-item d-flex">
-                    <?php echo("<p> <b>USER:</b></p>");?>
+                    <?php echo("<p> <b>USER DELETE:</b></p>");?>
                     <span class="ml-auto">
-                        <?php echo("<p>{$data['nameUser']}</p>"); ?>
+                        <?php echo("<p>{ $name }</p>"); ?>
                     </span>
                     </li>
 
