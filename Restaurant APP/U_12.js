@@ -1,12 +1,12 @@
 
-function operation(){
-    var name = document.getElementById('name').value;
-    var lastname = document.getElementById('lastname').value;
-    if (name === "" || lastname === "") {
+function buy(){
+    var nameSaucer = document.getElementById('nameSaucer').value;
+    var qualification = document.getElementById('qualification').value;
+    if (nameSaucer === "" || qualification === "") {
         alert('MUST GIVE AN ID');
         return false;
     } else{        
-        document.getElementById('form').action = "./U_12.php";        
+        document.getElementById('form').action = "./buy.php";        
         return true;
     }
 }
